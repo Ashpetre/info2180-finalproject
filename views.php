@@ -21,15 +21,15 @@ $title = 'Full Contact Details';
         </p>
 
 <!-- Function to get names/could use emails instead  -->
-public function getContactInfo($fname){
-    $sql = "select * from contacts where firstname = :fname";
+public function getContactInfo($mail){
+    $sql = "select * from contacts where email = :mail";
     $stmt = $this->schema-prepare($sql);
-    $stmt->bindParam(':fname', $fname)
+    $stmt->bindParam(':mail', $mail)
     $stmt->execute();
     $result = $stmt->fetch()
     return $result;
 }
 
 <!-- View button that would be displayed on the dashboard -->
-    <td><href="view.php?fname=(code to get either fname or email here)" class="btn">View</a></td>  
+    <td><href="view.php?fname=(code to get email here)" class="btn">View</a></td>  
 
