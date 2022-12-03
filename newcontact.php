@@ -1,26 +1,35 @@
 <?php
-//$creator_id = $_SESSION["id"]; 
-//$stmt = $conn->prepare("SELECT firstname,lastname FROM contacts);
-//$stmt->execute();
-//$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $host = 'localhost';
 $username = 'user_RL';
 $password = 'password123';
-$dbname = 'schema';
-
+$dbname = 'schema'; 
+//$stmt = $conn->prepare("SELECT firstname,lastname FROM users);
+//$stmt->execute();
+//$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//if (empty($_GET['titles']){
+//   foreach ($users as $row): 
+//      if($row['id'] == 1)
+//        echo '<option value='.$row['firstname'].' '.$row['lastname'].'selected = "selected">'.$row['firstname'].' '.$row['lastname'].'</option>';
+//      else
+//      echo '<option value='.$row['firstname'].' '.$row['lastname'].'>'.$row['firstname'].' '.$row['lastname'].'</option>';
+//   endforeach; 
+//}
 $title = htmlspecialchars($_GET['titles']);
 $firstname = htmlspecialchars($_GET['firstname']);
 $lastname = htmlspecialchars($_GET['lastname']);
 $email = htmlspecialchars($_GET['emailaddr']);
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 $tele = htmlspecialchars($_GET['tele']);
+$tele = filter_var($tele, FILTER_SANITIZE_INT);
 $company = htmlspecialchars($_GET['company']);
 $type = htmlspecialchars($_GET['types']);
 $assigned = htmlspecialchars($_GET['assigned']);
 $assigneds = explode(" ",$assigned);
+//$creator_id = $_SESSION["id"];
 $created = date("Y-m-d h:i:sa");
 $updated = $created;
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-//$stmt = $conn->prepare("SELECT id FROM contacts WHERE firstname LIKE :assignedf AND lastname LIKE :assignedl);
+//$stmt = $conn->prepare("SELECT id FROM users WHERE firstname LIKE :assignedf AND lastname LIKE :assignedl);
 //$stmt->bindParam(":assignedf",$assigneds[0]);
 //$stmt->bindParam(":assignedl",$assigneds[1]);
 //$stmt->execute();
