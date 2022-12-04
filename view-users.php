@@ -8,7 +8,7 @@ $password = 'pw123';
 $dbname = 'schema';
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-$statement= 'SELECT name, email, role, created from (name of table with data in sql)';
+$statement= 'SELECT name, email, role, created from contacts';
 $results = $conn-> query ($statement->fetchAll(PDO::FETCH_ASSOC)); 
 ?>
 <!DOCTYPE html>

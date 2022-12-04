@@ -15,17 +15,17 @@ if (isset($_SESSION["user"])){
 </head>
 <header>
     <h3>Dolphin CRM</h3>
-    <!-- pic of a dolphin -->
-    <h1>login</h1>
+    <img src="dolphin.jpg" alt="dolphin">    
+<h1>login</h1>
    
 </header>
 <body>
     <div class="container">
     <?php
-    $host = 'localhost';
-    $username = 'lab5_user';
-    $password = 'password123';
-    $dbname = 'test'; 
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "dolphin_crm";
     $conn= mysqli_connect($host,$username,$password,$dbname);
     // $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
@@ -54,9 +54,8 @@ if (isset($_SESSION["user"])){
 
 <form method="post"  action="login.php">
   <div id = "login">
-    <label>Email</label>
+    <h1>Login</h1>
     <input type = "email" name="email" placeholder="Enter Your email address">
-    <label>Password</label>
     <input type="password" name="password" placeholder="Enter Your password">
     <input name= "login"type="submit" class="submit" >
 

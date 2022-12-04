@@ -16,7 +16,8 @@ if (!isset($_SESSION["user"])){
 <body>
     <header>
         <H4>Dashboard</H4>
-        <button id="Addcontact">+ Add Contact</button>
+        <button class="Addcontact" onclick="window.location.href='AddUser.php'">
+        + Add Contact</button>
         <div class="filter">
             <!-- filter -->
         <img src="" alt="">
@@ -39,13 +40,13 @@ if (!isset($_SESSION["user"])){
         </thead>
         <tbody>
             <?php
-            $host = 'localhost';
-            $username = 'root';
-            $password = '';
-            $dbname = 'schema'; 
+            $host = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "dolphin_crm"; 
             $conn= new mysqli($host,$username,$password,$dbname);
             // $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-            $sql = "SELECT * FROM schema";
+            $sql = "SELECT * FROM contacts";
             $results = $conn -> query($sql);
             while($row = $results->fetch_assoc()){
                 echo "<tr>
