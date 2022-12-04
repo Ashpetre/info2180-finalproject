@@ -31,5 +31,7 @@ public function getContactInfo($mail){
 }
 
 <!-- View button that would be displayed on the dashboard -->
-    <td><href="view.php?fname=(code to get email here)" class="btn">View</a></td>  
+    <td><a href="view.php?mail=<?php echo $contacts['email'] ?>" class="btn btn-primary">View</a></td> 
+    OR?
+    <td><a href="view.php?mail=<?= $contacts['email'] ?>" class="btn btn-primary">View</a></td> 
 
