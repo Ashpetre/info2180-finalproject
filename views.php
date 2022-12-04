@@ -17,7 +17,7 @@ $title = 'Full Contact Details';
             Company: <?php echo $_POST['company'];  ?>    
         </p>
         <p class="card-text">
-            Date Of Birth: <?php echo $_POST['assigned_to'];  ?>
+            Assigned To: <?php echo $_POST['assigned_to'];  ?>
         </p>
 
 <!-- Function to get names/could use emails instead  -->
