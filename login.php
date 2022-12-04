@@ -17,7 +17,6 @@ if (isset($_SESSION["user"])){
 <header>
     <h3>Dolphin CRM</h3>
     <img src="dolphin.jpg" alt="dolphin">    
-<h1>login</h1>
 </header>
 <body>
     <div class="container">
