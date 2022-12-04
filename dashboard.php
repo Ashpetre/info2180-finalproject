@@ -44,8 +44,7 @@ if (!isset($_SESSION["user"])){
             $password = '';
             $dbname = 'schema'; 
             $conn= new mysqli($host,$username,$password,$dbname);
-            // $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-            $sql = "SELECT * FROM schema";
+            $sql = "SELECT * FROM contacts";
             $results = $conn -> query($sql);
             while($row = $results->fetch_assoc()){
                 echo "<tr>
@@ -53,7 +52,7 @@ if (!isset($_SESSION["user"])){
                 <td>".$row["email"]."</td>
                 <td>".$row["company"]."</td>
                 <td>".$row["type"]."</td>
-                <td> <a href='views.php'> View</a></td>
+                <td> <a href='view-users.php'> View</a></td>
                 </tr>";
             }
             
