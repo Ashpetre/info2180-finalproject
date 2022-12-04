@@ -2,12 +2,27 @@
 document.addEventListener("DOMContentLoaded",function(){
     var button = document.getElementById("btn");
     var list = "newcontact.php?titles=";
+    var users = "newcontact.php";
     var exlist =["&firstname=","&lastname=","&emailaddr=","&tele=","&company=","&types=","&assigned="];
     var ids = ["fname","lname","email","telephone","comp"];
     var valid;
     const input = [];
     var tests = [/^[a-zA-Z ]+$/,/^[a-zA-Z ]+$/,/^\w+(.\w)*@(\w+.)+(edu|com)$/,/^\d{10,10}$/,
                 /^[a-zA-Z ]+$/];
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function(){
+            if (httpRequest.readyState == XMLHttpRequest.DONE){
+              if (httpRequest.status == 200){
+                var list = httpRequest.responseText;
+                var result = document.getElementById("assign");
+                result.innerHTML = list;
+                          }     
+             else
+                alert("error");} 
+        }
+    httpRequest.open("GET",users);
+    console.log(users);
+    httpRequest.send();
     button.onclick = function(event){
         event.preventDefault();
         document.getElementById("error").innerHTML = "";
@@ -19,6 +34,7 @@ document.addEventListener("DOMContentLoaded",function(){
             if (httpRequest.readyState == XMLHttpRequest.DONE){
               if (httpRequest.status == 200){
                 var response = httpRequest.responseText;
+		console.log(response);
                 var result = document.getElementById("error");
                 if(response == "New Contact created successfully")
                    result.innerHTML = response;
@@ -29,7 +45,6 @@ document.addEventListener("DOMContentLoaded",function(){
                 alert("error");} 
         }
         list += document.getElementById("title").value;
-        console.log(input);
         for (let obj of ids){
             console.log(obj);
             if (document.getElementById(obj).checkValidity())
@@ -43,13 +58,14 @@ document.addEventListener("DOMContentLoaded",function(){
                  break;}
 	}
 	if (valid == true){
-    input[0] = document.getElementById("fname").value;
+          input[0] = document.getElementById("fname").value;
 	  input[1] = document.getElementById("lname").value;
 	  input[2] = document.getElementById("email").value;
 	  input[3] = document.getElementById("telephone").value;
 	  input[4] = document.getElementById("comp").value;
-    exlist[5] += document.getElementById("type").value;
+          exlist[5] += document.getElementById("type").value;
 	  exlist[6] += document.getElementById("assign").value;
+          console.log(exlist[6]);
 	  for(var i = 0; i<5; i++){
              input[i].trim();
              if (tests[i].test(input[i])){

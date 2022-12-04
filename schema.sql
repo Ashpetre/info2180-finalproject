@@ -69,6 +69,7 @@ CREATE TABLE `notes` (
 -- Table structure for table `users`
 --
 
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
   `firstname` varchar(25) NOT NULL,
@@ -80,6 +81,8 @@ CREATE TABLE `users` (
    PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
+INSERT INTO `users`(firstname,lastname,email,role,password) VALUES ('John','Doe','admin@project2.com','Admin',PASSWORD('password123'));
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
