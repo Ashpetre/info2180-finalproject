@@ -81,7 +81,8 @@ CREATE TABLE `users` (
    PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
-INSERT INTO `users`(email,password) VALUES ('admin@project2.com',PASSWORD('password123'));
+INSERT INTO `users`(firstname,lastname,email,role,password) VALUES ('John','Doe','admin@project2.com','Admin',PASSWORD('password123'));
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
