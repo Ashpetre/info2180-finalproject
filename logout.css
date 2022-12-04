@@ -1,0 +1,12 @@
+.logoutBtn{
+    background-color: rgb(194, 105, 239);
+    width: 20%;
+    padding: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: solid;
+    border: none;
+    border-radius: 5px;
+
+}
