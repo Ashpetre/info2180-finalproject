@@ -4,7 +4,7 @@ $title = 'Full Contact Details';
 
 ?>
 
-<!-- Function to get names/could use emails instead  -->
+<!-- Function to get emails to bring up specific contact  -->
 public function getContactInfo($mail){
     $sql = "select * from contacts where email = :mail";
     $stmt = $this->schema-prepare($sql);
