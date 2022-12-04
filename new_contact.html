@@ -1,0 +1,69 @@
+<!--<?php
+      session_start();
+  ?>-->
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>New Contact Page</title>
+
+		<link href="newcontact.css" type="text/css" rel="stylesheet" />
+
+		<script src="newcontact.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+	  <div class = "content">
+		<header>
+			<h1>New Contact</h1>
+		</header>
+
+		<main>
+			<div id="form">
+             <form action:"newcontact.php" method:"get">
+				<div class="dropdown">
+                    <label for="titles">Titles:</label>
+                    <select name="titles" id="title">
+					<option value="Mr."selected = "selected">Mr.
+					<option value="Mrs.">Mrs.
+					<option value="Ms.">Ms.
+				</select>
+ 				  </div>
+				</div>
+				<label for: "fname">First Name<label/>
+				<input id="fname" type = "text" aria-required = "true" required name="firstname" placeholder="First Name" />
+				<label for: "lname">Last Name<label/>
+				<input id="lname" type = "text" aria-required = "true" required name="lastname" placeholder="Last Name" />
+				<label for: "emailaddr">Email Address<label/>
+                <input id="email" type = "email" aria-required = "true" required name="emailaddr" placeholder="something@website.com" />
+				<label for: "tele">Telephone Number<label/>
+				<input id="telephone" type = "tel" aria-required = "true" required name="tele" placeholder="10 digits" />
+				<label for: "company">Company<label/>
+				<input id="comp" aria-required = "true" required name="company" />
+				<div class="dropdown2">
+                    <label for="types">Type</label>
+                    <select name="types" id="type">
+					<option value="Sales Lead"selected = "selected">Sales Lead
+					<option value="Support">Support
+				  </select>
+                    <label for="assigned">Assigned To</label>
+                    <select name="assigned" id="assign">
+					</select>
+ 				  </div>
+                    <button type="submit" id="btn">Save</button>
+			<p id = "error"></p>
+			</form>
+			</div>
+
+			
+		</main>
+	</div>
+                <div class="sidenav">
+       		     <a href="#">Home</a>
+       		     <a href="#">New contact</a>
+       		     <a href="#">Users</a>
+       		     <a href="#">logout</a>
+       		  </div>
+
+	</body>
+</html>

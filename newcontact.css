@@ -1,0 +1,32 @@
+body{
+  display:flex;
+  flex-direction: row-reverse;
+}
+div.sidenav{
+  height: 100%;
+  grid-column : 1/span 1;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
+.content{
+  grid-column : 2/ span 1;
+}
+form{
+  margin: 5px;
+  display:grid;
+  grid-template-columns: 1fr, 1fr;
+  grid-template-rows: repeat(6,auto);
+}
+#fname{
+  grid-column: 1/span 1;
+  grid-row: 2/span 1;
+}
+#lname{
+  grid-column: 2/span 1;
+  grid-row: 2/span 1;
+}
+#email{
+  grid-column: 1/span 1;
+  grid-row: 3/span 1;
+}
