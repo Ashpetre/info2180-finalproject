@@ -12,10 +12,14 @@ if (!isset($_SESSION["user"])){
     <title>Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <script src="login.js"></script>
+    <header>
+    <h3>Dolphin CRM</h3>
+    <img src="dolphin.jpg" alt="dolphin">    
 </head>
 <body>
-    <header>
-        <H4>Dashboard</H4>
+</header>
+<div class="dashboard">
+<H4>Dashboard</H4>
         <button class="Addcontact" onclick="window.location.href='AddUser.php'">
         + Add Contact</button>
         <div class="filter">
@@ -63,16 +67,15 @@ if (!isset($_SESSION["user"])){
         </table>
         
         </div>
-
+</div>
         <div class="sidenav">
-            <button>Home</button>
-            <button>New Contact</button>
-            <button>Users</button>
-            <button>Logout</button>
+            <a href="dashboard.php">Home</a>
+       		<a href="new_contact.html">New contact</a>
+       		<a href="view_users.html">Users</a>
+       		<a href="logout.html">logout</a>
 
         </div>
         
-    </header>
 </body>
 
 </html>
