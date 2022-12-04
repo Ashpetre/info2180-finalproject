@@ -14,13 +14,14 @@ $dbname = 'schema';
 //      echo '<option value='.$row['firstname'].' '.$row['lastname'].'>'.$row['firstname'].' '.$row['lastname'].'</option>';
 //   endforeach; 
 //}
+$result = 'Error with new contact creation';
 $title = htmlspecialchars($_GET['titles']);
 $firstname = htmlspecialchars($_GET['firstname']);
 $lastname = htmlspecialchars($_GET['lastname']);
 $email = htmlspecialchars($_GET['emailaddr']);
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 $tele = htmlspecialchars($_GET['tele']);
-$tele = filter_var($tele, FILTER_SANITIZE_INT);
+$tele = filter_var($tele, FILTER_SANITIZE_NUMBER_INT);
 $company = htmlspecialchars($_GET['company']);
 $type = htmlspecialchars($_GET['types']);
 $assigned = htmlspecialchars($_GET['assigned']);
@@ -45,5 +46,6 @@ $stmt->bindParam(":tyype",$type);
 $stmt->bindParam(":created",$created);
 $stmt->bindParam(":updated",$updated);
 $stmt->execute();
-vardump($title);
+$result = "New Contact created successfully";
+echo $result;
 ?>
