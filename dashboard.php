@@ -47,7 +47,7 @@ if (!isset($_SESSION["user"])){
             $host = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "dolphin_crm"; 
+            $dbname = "schema"; 
             $conn= new mysqli($host,$username,$password,$dbname);
             // $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
             $sql = "SELECT * FROM contacts";

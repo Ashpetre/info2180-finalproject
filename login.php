@@ -11,13 +11,13 @@ if (isset($_SESSION["user"])){
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css">
     <script src="login.js"></script>
 </head>
 <header>
     <h3>Dolphin CRM</h3>
     <img src="dolphin.jpg" alt="dolphin">    
 <h1>login</h1>
-   
 </header>
 <body>
     <div class="container">
@@ -25,7 +25,7 @@ if (isset($_SESSION["user"])){
     $host = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "dolphin_crm";
+    $dbname = "schema";
     $conn= mysqli_connect($host,$username,$password,$dbname);
     // $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
