@@ -1,8 +1,11 @@
 <?php
-$host = 'localhost';
-$username = 'user_RL';
-$password = 'password123';
-$dbname = 'schema'; 
+session_start();
+?>
+<?php
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "schema";
 if (!isset($_GET['titles'])){
  $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
  $stmt = $conn->prepare("SELECT id,firstname,lastname FROM users");
@@ -30,7 +33,7 @@ else{
  $type = htmlspecialchars($_GET['types']);
  $assigned = htmlspecialchars($_GET['assigned']);
  $assigneds = explode("_",$assigned);
-//$creator_id = $_SESSION["id"];
+$creator_id = $_SESSION["user"];
  $created = date("Y-m-d h:i:sa");
  $updated = $created;
  $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -39,7 +42,8 @@ else{
  $stmt->bindParam(":assignedl",$assigneds[1]);
  $stmt->execute();
  $assigned_id = $stmt->fetchAll(PDO::FETCH_ASSOC);
- $stmt = $conn->prepare("INSERT INTO contacts (title,firstname,lastname,email,telephone,company,`type`,assigned_to,created_at,updated_at) VALUES (:title,:firstname,:lastname,:email,:tele,:company,:tyype,:assigned,:created,:updated)");
+ $stmt = $conn->prepare("INSERT INTO contacts (created_by,title,firstname,lastname,email,telephone,company,`type`,assigned_to,created_at,updated_at) VALUES (:creator,:title,:firstname,:lastname,:email,:tele,:company,:tyype,:assigned,:created,:updated)");
+ $stmt->bindParam(":creator",$creator_id);
  $stmt->bindParam(":title",$title);
  $stmt->bindParam(":firstname",$firstname);
  $stmt->bindParam(":lastname",$lastname);

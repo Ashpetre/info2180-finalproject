@@ -10,17 +10,29 @@ if (!isset($_SESSION["user"])){
 <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="addUser.css">
     <script src="login.js"></script>
     <header>
-    <h3>Dolphin CRM</h3>
-    <img src="dolphin.jpg" alt="dolphin">    
+    <nav>
+        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+        <p>DolphinCRM</p>
+    </nav>   
 </head>
+<aside>
+            <ul>
+                <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
+                <a href="new_contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="view-users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <hr>
+                <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+            </ul>
+        </aside>
 <body>
 </header>
 <div class="dashboard">
-<H4>Dashboard</H4>
-        <button class="Addcontact" onclick="window.location.href='AddUser.php'">
+        <button class="Addcontact" onclick="window.location.href='new_contact.php'">
         + Add Contact</button>
         <div class="filter">
             <!-- filter -->
@@ -54,7 +66,7 @@ if (!isset($_SESSION["user"])){
             $results = $conn -> query($sql);
             while($row = $results->fetch_assoc()){
                 echo "<tr>
-                <td>".$row["title"] + "."+$contacts["firstname"]+ " " +$contacts["lastname"]. "</td>
+                <td>".$row["title"].".".$row["firstname"]." ".$row["lastname"]."</td>
                 <td>".$row["email"]."</td>
                 <td>".$row["company"]."</td>
                 <td>".$row["type"]."</td>
@@ -68,14 +80,7 @@ if (!isset($_SESSION["user"])){
         
         </div>
 </div>
-        <div class="sidenav">
-            <a href="dashboard.php">Home</a>
-       		<a href="new_contact.html">New contact</a>
-       		<a href="view_users.html">Users</a>
-       		<a href="logout.html">logout</a>
 
-        </div>
-        
 </body>
 
 </html>

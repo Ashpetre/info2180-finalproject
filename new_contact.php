@@ -1,16 +1,31 @@
-<!--<?php
+<?php
       session_start();
-  ?>-->
+  ?>
 <!DOCTYPE html>
 <html>
 	<head>
         <meta charset="utf-8">
 		<title>New Contact Page</title>
 
-		<link href="newcontact.css" type="text/css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    	<link rel="stylesheet" href="addUser.css">
 
 		<script src="newcontact.js" type="text/javascript"></script>
+		<nav>
+        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+        <p>DolphinCRM</p>
+    </nav>
 	</head>
+	<aside>
+            <ul>
+                <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
+                <a href="new_contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="view-users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <hr>
+                <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+            </ul>
+        </aside>
 
 	<body>
 	  <div class = "content">
@@ -62,7 +77,7 @@
        		     <a href="#">Home</a>
        		     <a href="#">New contact</a>
        		     <a href="#">Users</a>
-       		     <a href="#">logout</a>
+       		     <a href="logout.php">logout</a>
        		  </div>
 
 	</body>

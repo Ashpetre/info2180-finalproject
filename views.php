@@ -15,12 +15,13 @@ public function getContactInfo($mail){
 }
 
 <!-- Supposedly to get database  -->
+<?php
 $host = 'localhost';
 $username = 'user_RL';
 $password = 'password123';
 $dbname = 'schema';
 $con = mysqli_connect($host, $username, $password, $dbname);
-
+?>
 
 <!-- First card -->
 <div class="card" style="width: 18rem;">
@@ -44,24 +45,24 @@ $con = mysqli_connect($host, $username, $password, $dbname);
 <!-- Second card with notes  -->
     <?php 
         $sql="SELECT * FROM 'notes'";
-        $res=mysqi_query($con, $sql);
-        while (fetch=mysqli_fetch_assoc($res)){
-            echo <div class="card">
-            <div class="card-body">
+        $res=mysqli_query($con, $sql);
+        
+        while ($row = $results->fetch_assoc()){
+            echo" <div class='card'>
+            <div class='card-body'>
             <h3>Notes</h3>
-            <h3 class="card title"> .$fetch["created_by"]</h3>
-            <p class="card-text">.$fetch["comment"]</p>
-            </div>
+            <h3 class='card title'>".$row["created_by"]."</h3>
+            <p class='card-text'>".$row["comment"]."</p>
+            </div>";
         }
-        <div class="container">
-            <form class="form" method="POST">
+    ?>
+
+    <div class='container'>
+            <form class="form' method="POST">
                 <label for="title" class="form-label"> Add a note about .$fetch["firstname"]</label>
                 <input type="text" name="comment" id="comment" placeholder="Enter details here">
                 <button type="submit" class="btn btn-primary" name="submit">Add Note</button>
-        </div>
-    ?>
-
-
+    </div>
 <!-- View button that would be displayed on the dashboard -->
     <td><a href="view.php?mail=<?php echo $contacts['email'] ?>" class="btn btn-primary">View</a></td> 
     OR?

@@ -17,9 +17,8 @@
 th{
     text-align: left;
     background-color:  rgb(185, 185, 185);
-    padding: 10px;
+    padding: 10px; 
 }
-
 table{
     border-collapse: collapse;
     font-family:'Courier New', Courier, monospace;
@@ -27,8 +26,7 @@ table{
     margin-left: 15%;
     border: 1px solid  rgb(170, 169, 169);
     background-color: rgb(246, 246, 235);
-}
-
+}  
 tr{
     padding: 5px;
     border-bottom: 1px solid  rgb(170, 169, 169);

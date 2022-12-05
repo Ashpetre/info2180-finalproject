@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded",function(){
                 alert("error");} 
         }
     httpRequest.open("GET",users);
-    console.log(users);
     httpRequest.send();
     button.onclick = function(event){
         event.preventDefault();
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded",function(){
             if (httpRequest.readyState == XMLHttpRequest.DONE){
               if (httpRequest.status == 200){
                 var response = httpRequest.responseText;
-		console.log(response);
                 var result = document.getElementById("error");
                 if(response == "New Contact created successfully")
                    result.innerHTML = response;
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded",function(){
         }
         list += document.getElementById("title").value;
         for (let obj of ids){
-            console.log(obj);
             if (document.getElementById(obj).checkValidity())
                valid = true;	
             else{
@@ -65,7 +62,6 @@ document.addEventListener("DOMContentLoaded",function(){
 	  input[4] = document.getElementById("comp").value;
           exlist[5] += document.getElementById("type").value;
 	  exlist[6] += document.getElementById("assign").value;
-          console.log(exlist[6]);
 	  for(var i = 0; i<5; i++){
              input[i].trim();
              if (tests[i].test(input[i])){
@@ -80,7 +76,6 @@ document.addEventListener("DOMContentLoaded",function(){
 	    list += exlist[5];
 	    list += exlist[6];
             httpRequest.open("GET",list);
-            console.log(list);
             httpRequest.send();
             document.getElementsByTagName("form")[0].reset();
             list = "newcontact.php?titles=";
