@@ -70,11 +70,13 @@ if (!isset($_SESSION["user"])){
                 <td>".$row["email"]."</td>
                 <td>".$row["company"]."</td>
                 <td>".$row["type"]."</td>
-                <td> <a href='views.php'> View</a></td>
+                <td> <button class='views'>VIEW</button></td>
                 </tr>";
             }
             
             ?>
+            
+            
         </tbody>
         </table>
         

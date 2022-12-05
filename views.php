@@ -3,16 +3,17 @@
 $title = 'Full Contact Details';
 
 ?>
+<?php
+// <!-- Function to get emails to bring up specific contact  -->
 
-<!-- Function to get emails to bring up specific contact  -->
-public function getContactInfo($mail){
     $sql = "select * from contacts where email = :mail";
     $stmt = $this->schema-prepare($sql);
     $stmt->bindParam(':mail', $mail)
     $stmt->execute();
     $result = $stmt->fetch()
     return $result;
-}
+
+?>
 
 <!-- Supposedly to get database  -->
 <?php
