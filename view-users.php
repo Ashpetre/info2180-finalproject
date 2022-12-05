@@ -8,7 +8,7 @@ $host = "localhost";
             $dbname = "schema"; 
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-$statementb = 'SELECT firstname, email, role, created_at FROM users';
+$statementb = 'SELECT firstname, lastname, email, role, created_at FROM users';
 $statement = $conn-> query ($statementb);
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -18,9 +18,29 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="view-users.css" >
+        <!-- <link rel="stylesheet" href="view-users.css" > -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="addUser.css">
+
         <title>View Users</title>
     </head>
+    <nav>
+        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+        <p>DolphinCRM</p>
+    </nav>   
+</head>
+<aside>
+            <ul>
+                <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
+                <a href="new_contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="view-users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <hr>
+                <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+            </ul>
+        </aside>
+<body>
+</header>
     
     <body>
         <div class="ViewUsersTable">
@@ -34,10 +54,10 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                 
                 <?php foreach ($results as $row): ?>
                     <tr>
-                      <td><?= $row['name']?></td>
+                      <td><?= $row['firstname']." ".$row['lastname']?></td>
                       <td><?= $row['email']?></td>
                       <td><?= $row['role']?></td>
-                      <td><?= $row['created']?></td>
+                      <td><?= $row['created_at']?></td>
                   </tr>
                   <?php endforeach; ?>
                    
