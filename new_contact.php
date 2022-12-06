@@ -34,7 +34,7 @@
 		</header>
 
 		<main>
-			<div id="form">
+			<div id="form" class = "form">
              <form action:"newcontact.php" method:"get">
 				<div class="dropdown">
                     <label for="titles">Titles:</label>
@@ -57,12 +57,12 @@
 				<input id="comp" aria-required = "true" required name="company" />
 				<div class="dropdown2">
                     <label for="types">Type</label>
-                    <select name="types" id="type">
+                    <select name="types" class = 'dropdown' id="type">
 					<option value="Sales Lead"selected = "selected">Sales Lead
 					<option value="Support">Support
 				  </select>
                     <label for="assigned">Assigned To</label>
-                    <select name="assigned" id="assign">
+                    <select name="assigned" class = 'dropdown' id="assign">
 					</select>
  				  </div>
                     <button type="submit" id="btn">Save</button>
@@ -72,6 +72,7 @@
 
 			
 		</main>
-</div>
+	</div>
+
 	</body>
 </html>
