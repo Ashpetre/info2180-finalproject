@@ -26,10 +26,12 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         <title>View Users</title>
     </head>
     <nav>
+        
     <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
         <p>DolphinCRM</p>
     </nav>   
 </head>
+<a href="Adduserpage.php">add user</a>
 <aside>
             <ul>
                 <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>

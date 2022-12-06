@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["user"])){
-    header("Location: dashboard.php");
+   
 }
 
 ?>
@@ -52,7 +52,7 @@ if (!isset($_SESSION["user"])){
                 <span>
                 <a href="dashboard.php?query=Support">Assigned to me</a>
                 </span>
-        </div>
+ </div>
         <div id=" table">
         <caption><h2> DASHBOARD </h2></caption>
         <table>
@@ -72,7 +72,7 @@ if (!isset($_SESSION["user"])){
             $password = "";
             $dbname = "schema"; 
             $conn= new mysqli($host,$username,$password,$dbname);
-            $id = $_SESSION["user"];
+            
             if(!isset($_GET['fetch'])){
                 if(!isset($_GET['query'])){
                     $sql = "SELECT * FROM contacts";
