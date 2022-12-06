@@ -20,20 +20,21 @@ $role = filter_var($_POST['role'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 date_default_timezone_set(date_default_timezone_get());
 
-
-try{
-    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, password, email, role, created_at) 
-                            VALUES (:fname, :lname, :password, :email, :role, :date)");
-
-    $stmt->bindValue(':fname', $firstName, PDO::PARAM_STR);
-    $stmt->bindValue(':lname', $lastName, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
-    $stmt->bindValue(':role', $role, PDO::PARAM_STR);
-    $stmt->bindValue(':date', date('Y-m-d H:i:s'));
-
-    $stmt->execute();
-}
-catch(Exception $e){
-    echo "An Exception has occured: " . $e; 
+if($role = 'Admin'){
+    try{
+        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, password, email, role, created_at) 
+                                VALUES (:fname, :lname, :password, :email, :role, :date)");
+    
+        $stmt->bindValue(':fname', $firstName, PDO::PARAM_STR);
+        $stmt->bindValue(':lname', $lastName, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $stmt->bindValue(':role', $role, PDO::PARAM_STR);
+        $stmt->bindValue(':date', date('Y-m-d H:i:s'));
+    
+        $stmt->execute();
+    }
+    catch(Exception $e){
+        echo "An Exception has occured: " . $e; 
+    }
 }

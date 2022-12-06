@@ -285,7 +285,10 @@ input{
         grid-column: span 1; 
     }
 }
-.table-data{
+#table{
+    display: grid;
+}
+table-data{
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
