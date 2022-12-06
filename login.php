@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION["user"])){
-    header("Location: dashboard.php");
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +11,15 @@ if (isset($_SESSION["user"])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles.css">
     <script src="login.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="addUser.css">
 </head>
 <header>
-    <h3>Dolphin CRM</h3>
-    <img src="dolphin.jpg" alt="dolphin">    
+<nav>
+    <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
+        <p>DolphinCRM</p>
+    </nav>
+    
 </header>
 <body>
     <div class="container">

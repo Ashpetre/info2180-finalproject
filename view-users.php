@@ -26,7 +26,7 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         <title>View Users</title>
     </head>
     <nav>
-        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+    <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
         <p>DolphinCRM</p>
     </nav>   
 </head>

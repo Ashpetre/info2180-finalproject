@@ -3,9 +3,9 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$db_name = "dolphin_crm";
+$dbname = "schema";
 
-$conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$password,$username);
+$conn = new PDO("mysql:host=$host; dbname=$dbname; charset=utf8mb4",$password,$username);
 
 
 

@@ -13,14 +13,15 @@ if(!isset($_SESSION['id'])){
     <title>Document</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
     <link rel="stylesheet" href="addUser.css">
+    <link rel="stylesheet" href="styles.css">
+
     <script src="addUser.js"></script>
     
 </head>
 <body>
     <nav>
-        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+    <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
         <p>DolphinCRM</p>
     </nav>
 

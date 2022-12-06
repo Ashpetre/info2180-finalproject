@@ -16,8 +16,10 @@ if (!isset($_SESSION["user"])){
     <script src="login.js"></script>
     <header>
     <nav>
-        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+    
+    <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
         <p>DolphinCRM</p>
+    
     </nav>   
 </head>
 <aside>
@@ -35,12 +37,20 @@ if (!isset($_SESSION["user"])){
         <button class="Addcontact" onclick="window.location.href='new_contact.php'">
         + Add Contact</button>
         <div class="filter">
-            <!-- filter -->
-        <img src="" alt="">
-        <button>All</button>
-        <button>Sales Lead</button>
-        <button>Support</button>
-        <button>Assigned to me</button>
+                    <!-- filter -->
+                <img src="filter.png" alt="">
+                <span>
+                    <a href="dashboard.php">All</a>
+                </span>
+                <span>
+                    <a href="dashboard.php?query=Sales Lead" >Sales Lead</a>
+                </span>
+                <span>
+                    <a href="dashboard.php?query=Support">Support</a>
+                </span>
+                <span>
+               
+                </span>
         </div>
         <div id=" table">
         <caption><h2> DASHBOARD </h2></caption>
@@ -61,12 +71,22 @@ if (!isset($_SESSION["user"])){
             $password = "";
             $dbname = "schema"; 
             $conn= new mysqli($host,$username,$password,$dbname);
-            // $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-            $sql = "SELECT * FROM contacts";
-            $results = $conn -> query($sql);
+            if(!isset($_GET['fetch'])){
+                if(!isset($_GET['query'])){
+                    $sql = "SELECT * FROM contacts";
+                } else {
+                    $filter = $_GET['query'];
+                    $sql = "SELECT * FROM contacts WHERE type='$filter'";   
+                }
+                $results = $conn -> query($sql);
+                
+            } else {
+                
+                $results = $conn -> query($sql);
+            }
             while($row = $results->fetch_assoc()){
                 echo "<tr>
-                <td>".$row["title"].".".$row["firstname"]." ".$row["lastname"]."</td>
+                <td>".$row["title"]."".$row["firstname"]." ".$row["lastname"]."</td>
                 <td>".$row["email"]."</td>
                 <td>".$row["company"]."</td>
                 <td>".$row["type"]."</td>

@@ -13,7 +13,7 @@
 
 		<script src="newcontact.js" type="text/javascript"></script>
 		<nav>
-        <img src="dolphin.jpg" alt="Dolphin CRM" srcset="">
+        <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
         <p>DolphinCRM</p>
     </nav>
 	</head>
