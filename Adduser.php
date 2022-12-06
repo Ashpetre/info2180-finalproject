@@ -15,7 +15,7 @@ $firstName = filter_var($_POST['fname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $lastName = filter_var($_POST['lname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 $password = $_POST['password'];
-$role = filter_var($_POST['role'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$role = filter_var($_POST['Role'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 
 date_default_timezone_set(date_default_timezone_get());
