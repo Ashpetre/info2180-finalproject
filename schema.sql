@@ -82,8 +82,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 INSERT INTO `users`(firstname,lastname,email,role,password) VALUES ('John','Doe','admin@project2.com','Admin',PASSWORD('password123'));
-
-
+INSERT INTO `contacts`(title,firstname,lastname,email,telephone,company,type,assigned_to,created_by) VALUES ('Mr.','Michel','Lance','michel@test.com','8764445555','Forescythe','Sales Lead','1','1');
+INSERT INTO `contacts`(title,firstname,lastname,email,telephone,company,type,assigned_to,created_by) VALUES ('Ms.','Shauna','Blake','shauna@test.com','8765444555','Synthesia','Support','1','1');
+INSERT INTO `notes`(contact_id,comment,created_by) VALUES ('1','This is for Michel Lance','1');
+INSERT INTO `notes`(contact_id,comment,created_by) VALUES ('2','This is for Shauna Blake','1');
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
