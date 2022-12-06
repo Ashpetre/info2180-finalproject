@@ -40,7 +40,7 @@ session_start();
          $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
          if ($user) {
              if ((password_verify($pword, $user["password"])) || $email == 'admin@project2.com' && $pword == 'password123') {
-                 session_start();
+                session_start();
                  $_SESSION["user"] = $user["id"];
                  header("Location: dashboard.php");
                  die();

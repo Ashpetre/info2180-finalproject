@@ -72,13 +72,6 @@
 
 			
 		</main>
-	</div>
-                <div class="sidenav">
-       		     <a href="#">Home</a>
-       		     <a href="#">New contact</a>
-       		     <a href="#">Users</a>
-       		     <a href="logout.php">logout</a>
-       		  </div>
-
+</div>
 	</body>
 </html>

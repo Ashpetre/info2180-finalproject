@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["user"])){
     header("Location: dashboard.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,10 +47,10 @@ if (!isset($_SESSION["user"])){
                     <a href="dashboard.php?query=Sales Lead" >Sales Lead</a>
                 </span>
                 <span>
-                    <a href="dashboard.php?query=Support">Support</a>
+                <a href="dashboard.php?query=Support">Support</a>
                 </span>
                 <span>
-               
+                <a href="dashboard.php?query=Support">Assigned to me</a>
                 </span>
         </div>
         <div id=" table">
@@ -71,6 +72,7 @@ if (!isset($_SESSION["user"])){
             $password = "";
             $dbname = "schema"; 
             $conn= new mysqli($host,$username,$password,$dbname);
+            $id = $_SESSION["user"];
             if(!isset($_GET['fetch'])){
                 if(!isset($_GET['query'])){
                     $sql = "SELECT * FROM contacts";
@@ -81,7 +83,7 @@ if (!isset($_SESSION["user"])){
                 $results = $conn -> query($sql);
                 
             } else {
-                
+                $sql = "SELECT * FROM contacts WHERE assigned_to='$user'";   
                 $results = $conn -> query($sql);
             }
             while($row = $results->fetch_assoc()){
