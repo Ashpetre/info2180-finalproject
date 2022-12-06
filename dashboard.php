@@ -92,12 +92,11 @@ if (!isset($_SESSION["user"])){
                 <td>".$row["email"]."</td>
                 <td>".$row["company"]."</td>
                 <td>".$row["type"]."</td>
-                <td> <button class='views'>VIEW</button></td>
+                <td><a href='view.php?id=$row[id]'class = 'btn btn-primary'>VIEW</a></td>
                 </tr>";
             }
             
             ?>
-            
             
         </tbody>
         </table>
