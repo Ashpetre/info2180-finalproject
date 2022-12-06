@@ -17,6 +17,7 @@
         <p>DolphinCRM</p>
     </nav>
 	</head>
+         <div class = "container">
 	<aside>
             <ul>
                 <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
@@ -28,13 +29,15 @@
         </aside>
 
 	<body>
-	  <div class = "content">
+	
+        <main>
 		<header>
 			<h1>New Contact</h1>
 		</header>
-
-		<main>
-			<div id="form" class = "form">
+         <div id="form" class = "form"> 
+		
+           
+			
              <form action:"newcontact.php" method:"get">
 				<div class="dropdown">
                     <label for="titles">Titles:</label>
@@ -44,7 +47,7 @@
 					<option value="Ms.">Ms.
 				</select>
  				  </div>
-				</div>
+				
 				<label for: "fname">First Name<label/>
 				<input id="fname" type = "text" aria-required = "true" required name="firstname" placeholder="First Name" />
 				<label for: "lname">Last Name<label/>
@@ -57,12 +60,12 @@
 				<input id="comp" aria-required = "true" required name="company" />
 				<div class="dropdown2">
                     <label for="types">Type</label>
-                    <select name="types" class = 'dropdown' id="type">
+                    <select name="types"  id="type">
 					<option value="Sales Lead"selected = "selected">Sales Lead
 					<option value="Support">Support
 				  </select>
                     <label for="assigned">Assigned To</label>
-                    <select name="assigned" class = 'dropdown' id="assign">
+                    <select name="assigned"  id="assign">
 					</select>
  				  </div>
                     <button type="submit" id="btn">Save</button>
