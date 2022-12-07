@@ -10,7 +10,7 @@ session_start();
     if(!isset($_GET['id'])){
         echo "<h1>please check details</h1>";
     } else {
-        $id = $_GET['id'];
+        $id = $_SESSION["user"];
         $sql = "SELECT * FROM contacts WHERE id='$id'";
         $results= $conn -> query($sql);
         $result = $results->fetch_assoc();
@@ -20,7 +20,8 @@ session_start();
         $type = "Sales Lead";
     }
     }
-   
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +35,9 @@ session_start();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="addUser.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="views.js" type="text/javascript"></script>
+		
 
-    <script src="addUser.js"></script>
     
 </head>
 <body>
@@ -58,20 +60,9 @@ session_start();
         </aside>
     
 <div class="card" style="width: 18rem;">
-<button value= >Assigned to me</button>
-<button type="submit" name="switch-to">Switch to <?php echo $type?></button>
-<?php
-    if(isset($_POST['switch-to'])){
-        if ($result['type'] == 'Sales Lead'){
-            $type = "Support";
-            
-        }else{
-            $type = "Sales Lead";
-        }
+<button class="switch-to" >Assigned to me</button>
+<button class="switch-to">Switch to <?php echo $type?></button>
 
-
-    }
-?>
 <img src="contact.png" alt="" style="border-radius-100%" width="50px" height="50px">
     <h1><?php echo $result["title"]."".$result["firstname"]." ".$result["lastname"] ?></h1>
     <h4><?php echo "Created on ".$result["created_at"]." by ".$result["created_by"] ?></h4>
@@ -93,18 +84,24 @@ session_start();
             $sql = "SELECT * FROM notes where id = '$id'";
             $note= $conn -> query($sql);
             $notes = $note->fetch_assoc();
-            echo"<h1>Notes</h1>
-            
-            <p>$notes[comment]</p>";
+            echo"<h1>Notes</h1>";
+            try{
+            foreach ($notes as $row): 
+                 echo "<p>".$row['comment']."</p>";
+            endforeach; }catch(Error ){
+                    echo "<p>".$notes['comment']."</p>";}
+                   
             
         ?>
 
-    </div>
-        <form action="get">
+    </div class = form>
+        <form method "post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <label>Add a note about <?php echo $result['firstname'];?><label>
-            <input type = "text"> </br>
-            <input type = "submit" value= "submit"><br>
+            <input name = "note" type = "text"> 
+            <input type = "submit" id = "btn" value= "submit">
         </form>
+
+  
     </div>
     
 <body>
