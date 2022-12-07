@@ -42,6 +42,7 @@ session_start();
              if ((password_verify($pword, $user["password"])) || $email == 'admin@project2.com' && $pword == 'password123') {
                 session_start();
                  $_SESSION["user"] = $user["id"];
+                 $_SESSION["status"] = $user["role"];
                  header("Location: dashboard.php");
                  die();
              }else{

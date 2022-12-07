@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -9,18 +9,17 @@ $conn = new PDO("mysql:host=$host; dbname=$dbname; charset=utf8mb4",$password,$u
 
 
 
-session_start();
+
 
 $firstName = filter_var($_POST['fname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $lastName = filter_var($_POST['lname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 $password = $_POST['password'];
 $role = filter_var($_POST['Role'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+echo $email;
 
 date_default_timezone_set(date_default_timezone_get());
 
-if($role = 'Admin'){
     try{
         $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, password, email, role, created_at) 
                                 VALUES (:fname, :lname, :password, :email, :role, :date)");

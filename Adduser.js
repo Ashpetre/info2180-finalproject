@@ -85,7 +85,7 @@ window.addEventListener('load', ()=>{
             controls.classList.add('success')
 
             console.log("FIELDSOK")
-            fetch('addUser.php', {
+            fetch('Adduser.php', {
                 method: 'POST',
                 headers: {'Content-Type':'application/x-www-form-urlencoded'},
                 body: `fname=${fnameInput.value.trim()}&lname=${lnameInput.value.trim()}&email=${emailInput.value.trim()}&password=${passwordInput.value.trim()}&role=${drop_Selected.textContent}`
