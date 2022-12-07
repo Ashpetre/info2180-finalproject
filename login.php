@@ -39,7 +39,7 @@ session_start();
          $result = mysqli_query($conn, $sql);
          $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
          if ($user) {
-             if ((password_verify($pword, $user["password"])) || $email == 'admin@project2.com' && $pword == 'password123') {
+             if ($pword== $user["password"]|| ($email == 'admin@project2.com' && $pword == 'password123')) {
                 session_start();
                  $_SESSION["user"] = $user["id"];
                  $_SESSION["status"] = $user["role"];
