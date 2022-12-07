@@ -36,4 +36,3 @@ date_default_timezone_set(date_default_timezone_get());
     catch(Exception $e){
         echo "An Exception has occured: " . $e; 
     }
-}
