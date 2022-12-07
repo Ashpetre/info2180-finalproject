@@ -35,14 +35,15 @@ if (!isset($_SESSION["user"])){
                 <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
+        </header>
 <body>
-</header>
-<div class="dashboard">
-        <button class="Addcontact" onclick="window.location.href='new_contact.php'">
-        + Add Contact</button>
+<button class="Addcontact" onclick="window.location.href='new_contact.php'">+ Add Contact</button>
+<div class="container">
+        
         <div class="filter">
                     <!-- filter -->
                 <img src="filter.png" alt="">
+                <h3>Filter by:</h3>
                 <span>
                     <a href="dashboard.php">All</a>
                 </span>
@@ -55,10 +56,10 @@ if (!isset($_SESSION["user"])){
                 <span>
                 <a href="dashboard.php?query=Support">Assigned to me</a>
                 </span>
- </div>
-        <div id=" table">
+
+        <div id="table">
         <caption><h2> DASHBOARD </h2></caption>
-        <table>
+        <table id="contacts">
         <thead>
             <tr>
             <th id = "t1"> Name </th>
@@ -104,6 +105,7 @@ if (!isset($_SESSION["user"])){
         </tbody>
         </table>
         
+        </div>
         </div>
 </div>
 

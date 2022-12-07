@@ -285,14 +285,29 @@ input{
         grid-column: span 1; 
     }
 }
-#table{
+.table{
     display: grid;
 }
-table-data{
+#table {
+    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
+    width: 100%;
+    display: grid;
+  }
+  
+  #table td, #table th {
+   
+    padding: 8px;
+  }
+  
+  #table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #table tr:hover {background-color: #ddd;}
+  
+  #table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background: linear-gradient(90deg, rgb(24, 121, 201) 0%, rgb(0, 16, 156) 100%);
+    color: white;
+  }
