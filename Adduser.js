@@ -1,18 +1,19 @@
 window.addEventListener('load', ()=>{
 
 
-    
     const fnameInput = document.querySelector("#fname")
     const lnameInput = document.querySelector("#lname")
-    const passwordInput = document.querySelector("#password")
     const emailInput = document.querySelector("#email")
+    const passwordInput = document.querySelector("#password")
 
     
+  
     const drop_Select = document.querySelector('.select')
     const drop_Caret = document.querySelector('.caret')
     const drop_Menu = document.querySelector('.menu')
     const drop_Options = document.querySelectorAll('.menu li')
     const drop_Selected = document.querySelector('.selected')
+
 
     const saveBtn = document.querySelector("button")
     const controls = document.querySelector(".controls")
@@ -23,7 +24,7 @@ window.addEventListener('load', ()=>{
 
         fieldsOK = true
 
-        if(fnameInput.value.trim() == " ")
+        if(fnameInput.value.trim() == "")
         {
             fieldsOK = false
             msg = document.querySelector(".fnameMsg")
@@ -36,7 +37,8 @@ window.addEventListener('load', ()=>{
             msg.classList.remove('error')
         }
 
-         if(lnameInput.value.trim() == "")
+        
+        if(lnameInput.value.trim() == "")
         {
             fieldsOK = false
             msg = document.querySelector(".lnameMsg")
@@ -85,14 +87,14 @@ window.addEventListener('load', ()=>{
             controls.classList.add('success')
 
             console.log("FIELDSOK")
-            fetch('Adduser.php', {
+            fetch('php/addUser.php', {
                 method: 'POST',
                 headers: {'Content-Type':'application/x-www-form-urlencoded'},
                 body: `fname=${fnameInput.value.trim()}&lname=${lnameInput.value.trim()}&email=${emailInput.value.trim()}&password=${passwordInput.value.trim()}&role=${drop_Selected.textContent}`
             })
             .then(response => {
                 if(response.ok){return response.text()}
-                else{return Promise.reject('Something went wrong with fetch request!')}
+                else{return Promise.reject('Something was wrong with fetch request!')}
             })
             .then(data => {
                 console.log(data)
@@ -104,18 +106,22 @@ window.addEventListener('load', ()=>{
         }
         else
         {
-            msgBox.textContent = "Could not create a new user"
+            msgBox.textContent = "Couldn't create new user"
             controls.classList.add('fail')
             controls.classList.remove('success')
         }
 
 
+
     })
 
+
+    
+  
     drop_Select.addEventListener('click', (e) => {
+        drop_Select.classList.toggle('select-clicked')
         drop_Caret.classList.toggle('caret-rotate')
         drop_Menu.classList.toggle('menu-open')
-        drop_Select.classList.toggle('select-clicked')
         
     })
 
@@ -123,8 +129,8 @@ window.addEventListener('load', ()=>{
         option.addEventListener('click', () => {
             drop_Selected.textContent = option.textContent
             drop_Select.classList.remove('select-clicked')
-            drop_Menu.classList.remove('menu-open')
             drop_Caret.classList.remove('carer-rotate')
+            drop_Menu.classList.remove('menu-open')
 
             drop_Options.forEach(option => {
                 option.classList.remove('active')
