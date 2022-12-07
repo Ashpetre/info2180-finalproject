@@ -20,6 +20,11 @@ session_start();
         $type = "Sales Lead";
     }
     }
+    //to replace the status 
+    if(isset($_POST['switch-to'])){
+        }else{
+            
+    }
    
 ?>
 
@@ -61,16 +66,7 @@ session_start();
 <button value= >Assigned to me</button>
 <button type="submit" name="switch-to">Switch to <?php echo $type?></button>
 <?php
-    if(isset($_POST['switch-to'])){
-        if ($result['type'] == 'Sales Lead'){
-            $type = "Support";
-            
-        }else{
-            $type = "Sales Lead";
-        }
-
-
-    }
+    
 ?>
 <img src="contact.png" alt="" style="border-radius-100%" width="50px" height="50px">
     <h1><?php echo $result["title"]."".$result["firstname"]." ".$result["lastname"] ?></h1>
