@@ -13,8 +13,11 @@ session_start();
     <script src="login.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="addUser.css">
+    <link rel="stylesheet" href="login.css">
 </head>
+
 <header>
+<div class="container">
 <nav>
     <img class="dolpin" src="dolphin.jpg" alt="Dolphin CRM" width=30px height=30px>
         <p>DolphinCRM</p>
@@ -22,7 +25,7 @@ session_start();
     
 </header>
 <body>
-    <div class="container">
+   
     <?php
     $host = "localhost";
     $username = "root";
@@ -54,22 +57,19 @@ session_start();
 }
 
 ?>
-    </div>
-
+ 
+<div id = "login">
 <form method="post"  action="login.php">
-  <div id = "login">
+  
     <h1>Login</h1>
     <input type = "email" name="email" placeholder="Enter Your email address">
     <input type="password" name="password" placeholder="Enter Your password">
-    <input name= "login"type="submit" class="submit" >
+    <input name= "login"type="submit" class="submit" value="Login" >
 
     <!-- add a lil login button -->
 </div>
-<div class="alert"
-></div>
-
 </form>
-    
+</div>
 
     <footer>
       <h4>Copyright @ 2022 Dolphin CRM</h4>

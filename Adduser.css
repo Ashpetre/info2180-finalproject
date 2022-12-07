@@ -311,3 +311,84 @@ input{
     background: linear-gradient(90deg, rgb(24, 121, 201) 0%, rgb(0, 16, 156) 100%);
     color: white;
   }
+  *{
+    box-sizing: border-box;
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0%;
+}
+
+header{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5%;
+}
+
+.header h1{
+    position: center;
+    color: darkblue;
+    font-weight: 700;
+    margin-top: 70px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+body{
+    display: flex;
+    background-image: url(ocean.jpg);
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center ;
+    padding: 50px;
+    margin: 0%;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.header img{
+    height: 100px;
+    float: left;
+    background: aliceblue;
+}
+
+.container{
+    padding: 40px;
+    background-color: aliceblue;
+    box-shadow: 0 0 15px #333;
+    border-radius: 5px;
+    margin: 50px;
+    border: rgb(84, 102, 240);
+    
+}
+/* .login{
+    text-align: center;
+    align-self: center;
+} */
+
+
+form{
+    align-items: center;
+}
+#login{
+    padding: 40px;
+}
+
+
+#login input{
+    outline: none;
+    background-color: rgb(175, 206, 251);
+    width: 250px;
+    height: 30px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: none ;
+    
+}
+
+#login #btn{
+    margin-left: 10%;
+}
+footer{
+    text-align: center;
+}
