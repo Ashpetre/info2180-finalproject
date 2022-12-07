@@ -55,10 +55,17 @@
         </aside>
     
 <div class="card" style="width: 18rem;">
-<input type="submit" name="atm"value= ">Assigned to me</input>
-<button>Switch to <?php echo $type?></button>
+<button value= >Assigned to me</button>
+<button type="submit" name="switch-to">Switch to <?php echo $type?></button>
 <?php
-    if(isset($_POST['atm'])){
+    if(isset($_POST['switch-to'])){
+        if ($result['type'] == 'Sales Lead'){
+            $type = "Support";
+            
+        }else{
+            $type = "Sales Lead";
+        }
+
 
     }
 ?>
@@ -67,16 +74,16 @@
     <h4><?php echo "Created on ".$result["created_at"]." by ".$result["created_by"] ?></h4>
     <div class="card-body">
         <p class="card-text">
-            Email <?php echo $result['email'];  ?>
+            Email: <?php echo $result['email'];  ?>
         </p>
         <p class="card-text">
-            Telephone <?php echo $result['telephone'] ;  ?>
+            Telephone: <?php echo $result['telephone'] ;  ?>
         </p>
         <p class="card-text">
-            Company <?php echo $result['company'];  ?>    
+            Company: <?php echo $result['company'];  ?>    
         </p>
         <p class="card-text">
-            Assigned To <?php echo $result['assigned_to'];  ?>
+            Assigned To: <?php echo $result['assigned_to'];  ?>
         </p>
         <div class="container">
         <?php
