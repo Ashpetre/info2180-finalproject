@@ -13,10 +13,13 @@ session_start();
         $id = $_GET['id'];
         $sql = "SELECT * FROM contacts WHERE id='$id'";
         $results= $conn -> query($sql);
-        $result = $results->fetch_assoc();     
+        $result = $results->fetch_assoc();
+    if ($result['type'] == 'Sales Lead'){
+        $type = "Support";
+    }else{
+        $type = "Sales Lead";
     }
-
-
+    }
    
 ?>
 
@@ -55,38 +58,55 @@ session_start();
         </aside>
     
 <div class="card" style="width: 18rem;">
+<button value= >Assigned to me</button>
+<button type="submit" name="switch-to">Switch to <?php echo $type?></button>
+<?php
+    if(isset($_POST['switch-to'])){
+        if ($result['type'] == 'Sales Lead'){
+            $type = "Support";
+            
+        }else{
+            $type = "Sales Lead";
+        }
+
+
+    }
+?>
 <img src="contact.png" alt="" style="border-radius-100%" width="50px" height="50px">
     <h1><?php echo $result["title"]."".$result["firstname"]." ".$result["lastname"] ?></h1>
     <h4><?php echo "Created on ".$result["created_at"]." by ".$result["created_by"] ?></h4>
     <div class="card-body">
         <p class="card-text">
-            Email <?php echo $result['email'];  ?>
+            Email: <?php echo $result['email'];  ?>
         </p>
         <p class="card-text">
-            Telephone <?php echo $result['telephone'] ;  ?>
+            Telephone: <?php echo $result['telephone'] ;  ?>
         </p>
         <p class="card-text">
-            Company <?php echo $result['company'];  ?>    
+            Company: <?php echo $result['company'];  ?>    
         </p>
         <p class="card-text">
-            Assigned To <?php echo $result['assigned_to'];  ?>
+            Assigned To: <?php echo $result['assigned_to'];  ?>
         </p>
-    </div>
-    <div class="container">
+        <div class="container">
         <?php
             $sql = "SELECT * FROM notes where id = '$id'";
-            $results= $conn -> query($sql);
-            $result = $results->fetch_assoc();
+            $note= $conn -> query($sql);
+            $notes = $note->fetch_assoc();
             echo"<h1>Notes</h1>
-            <p>$result[comment]</p>";
+            
+            <p>$notes[comment]</p>";
             
         ?>
-        <form action="get">
-            <label>Add a note about <?php echo $result['firstname'];?><label>
-            <input type = "text"> <br>
-        </form>
 
     </div>
+        <form action="get">
+            <label>Add a note about <?php echo $result['firstname'];?><label>
+            <input type = "text"> </br>
+            <input type = "submit" value= "submit"><br>
+        </form>
+    </div>
+    
 <body>
 </div>
 </html>

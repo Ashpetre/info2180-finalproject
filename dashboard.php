@@ -64,7 +64,7 @@ if (!isset($_SESSION["user"])){
             <th id = "t1"> Name </th>
             <th id = "t2"> Email </th>
             <th id = "t3"> Company </th>
-            <th id = "t4"> type </th>
+            <th id = "t4"> Type </th>
             <th></th>
             </tr>
         </thead>
